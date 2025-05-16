@@ -11,4 +11,18 @@ jobs:
         with:
           python-version: 3.12
       - name: Verify Python
-        run: echo "python --version"
+        run: python --version
+      - name: Test Code
+        run: echo "Testing code for model"
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Deploy Code
+        run: echo "Deploy code for model to AWS"
