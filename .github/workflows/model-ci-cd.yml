@@ -23,3 +23,15 @@ jobs:
       - name: Build Model
         run: echo "Build Model"
 
+  model-cd:
+    needs: model-ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Python Setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Deploy Model
+        run: echo "Deploy Model to AWS"
