@@ -10,5 +10,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
+      - name: Install Python Dependencies
+        run: |
+          python pip install --upgrade pip
+          python pip install -r requirements.txt
       - name: Split Dataset
         run: python src/0-split-dataset.py
